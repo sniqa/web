@@ -1,11 +1,11 @@
 <template>
-  <i class="material-icons" :style="'font-size: ' + size" @click="onClick">{{ icon }}</i>
+  <i class="material-icons" :style="'font-size: ' + size" @click="onClick">{{ name }}</i>
 </template>
 
 <script>
 export default {
   props: {
-    icon: {
+    name: {
       type: String,
       default: 'broken_image'
     },

@@ -1,7 +1,7 @@
 <template>
-  <transition name="overlays"
-    @after-enter="afterEnter"
-    @after-leave="afterLeave">
+  <transition name="overlays">
+       <!-- @after-enter="afterEnter"
+    @after-leave="afterLeave" -->
     <div class="overlays" v-show="isShow">
       <button @click="btnOnClick" class="overlays-btn">Hide overlays</button>  
       <slot></slot>

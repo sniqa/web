@@ -14,8 +14,14 @@
       <span>Hi, there!</span>
     </Drawer> -->
        <!-- :before-close="handleClose" -->
-       <button @click="show=true">show overlays</button>
-       <Overlays :open.sync="show"></Overlays>
+       <!-- <button @click="show=true">show overlays</button>
+       <Overlays :open.sync="show"></Overlays> -->
+       <button @click="show=true">show drawer</button>
+       <Drawer :open.sync="show">
+    <SwitchToggle @switchToggleStatus="toggleOnClick"></SwitchToggle>
+    sssss
+
+       </Drawer>
   </div>
 </template>
 
@@ -25,8 +31,10 @@ import SearchBar from '@/components/SearchBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import NavMenu from '@/components/NavMenu.vue'
 import Axios from '@/components/Axios.vue'
-import Drawer from '@/components/drawer/Drawer.vue'
+// import Drawer from '@/components/drawer/Drawer.vue'
+import Drawer from '@/components/Drawer.vue'
 import Overlays from '@/components/Overlays.vue'
+
 export default {
   components: {
     SwitchToggle,
@@ -51,8 +59,13 @@ export default {
             done();
           })
           .catch(_ => {});
+      },
+       toggleOnClick(status){
+         console.log(this.$refs);
+         document.getElementById('app').className =  status ? "theme-light" : "theme-dark"  
       }
     }
+   
 }
 </script>
 
@@ -69,5 +82,13 @@ export default {
   --background: rgb(89, 117, 158);
   --foreground: #dddddd;
   --round: 0;
+}
+.theme-light{
+  --globle-color: #000;
+  --globle-bgColor: #fff;
+}
+.theme-dark{
+  --globle-color: #fff;
+  --globle-bgColor: #000;
 }
 </style>
