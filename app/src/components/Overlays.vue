@@ -39,14 +39,14 @@ export default {
 </script>
 <style>
 .overlays-default{
-
+  --overlays-background-color: rgba(0, 0, 0, .5);
 }
 </style>
 
 <style scoped>
 
 .overlays{
-  background-color: rgba(0, 0, 0, .5);
+  background-color: var(--overlays-background-color);
   position: fixed;
   z-index: 999;
   top: 0;
