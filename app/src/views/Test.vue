@@ -1,27 +1,22 @@
 <template>
   <div class="test">
-    <!-- <SwitchToggle :class="'toggle-type'" :on="false" @switchToggleStatus="cc"></SwitchToggle>
-    <SearchBar></SearchBar> -->
+    <!-- <SwitchToggle :class="'toggle-type'" :on="false" @switchToggleStatus="cc"></SwitchToggle>-->
+    <!-- <SearchBar></SearchBar>  -->
     <!-- <SideBar :left="false"></SideBar> -->
     <!-- <NavMenu></NavMenu> -->
     <!-- <Axios></Axios> -->
-    <!-- <button @click="drawer = true"  style="margin-left: 16px;">open</button>
-    <Drawer
-      title="I am the title"
-      :visible.sync="drawer"
-      :direction="direction"
-      >
-      <span>Hi, there!</span>
-    </Drawer> -->
+   
        <!-- :before-close="handleClose" -->
        <!-- <button @click="show=true">show overlays</button>
        <Overlays :open.sync="show"></Overlays> -->
-       <button @click="show=true">show drawer</button>
-       <Drawer :open.sync="show">
-    <SwitchToggle @switchToggleStatus="toggleOnClick"></SwitchToggle>
+        <!-- <button @click="show=true">show drawer</button>
+       <Drawer :open.sync="show" zclass="drawer-right"></Drawer> -->
+ <!--   <SwitchToggle @switchToggleStatus="toggleOnClick"></SwitchToggle>
     sssss
 
-       </Drawer>
+       </Drawer> -->
+  <!-- <work-area></work-area> -->
+    <icon name="settings" class="icon-type"></icon>
   </div>
 </template>
 
@@ -31,9 +26,11 @@ import SearchBar from '@/components/SearchBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import NavMenu from '@/components/NavMenu.vue'
 import Axios from '@/components/Axios.vue'
+import Icon from '@/components/Icon.vue'
 // import Drawer from '@/components/drawer/Drawer.vue'
 import Drawer from '@/components/Drawer.vue'
 import Overlays from '@/components/Overlays.vue'
+import WorkArea from '@/components/WorkArea.vue'
 
 export default {
   components: {
@@ -42,8 +39,10 @@ export default {
     SideBar,
     NavMenu,
     Axios,
+    Icon,
     Drawer,
-    Overlays
+    Overlays,
+    WorkArea,
   },
    data() {
       return {
@@ -69,13 +68,35 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 /* .test{
   margin: 100px;
   box-sizing: border-box;
   border: 1px solid red;
 } */
-.toggle-type{
+.icon-drawer-type{
+    --border-radius: 0;
+    --font-size: 16px;
+    --border-color: #fff;
+    --drawer--height: 100px;
+    --drawer--width: 100px;
+    --icon-height: 50px;
+    --icon-width: 50px;
+    --icon-size: 24px;
+}
+.drawer-left{
+  --drawer-width: 200px;
+}
+
+.icon-type{
+  --icon-size: 96px;
+  --icon-color: #dddd;
+  --icon-width: 100px;
+  --icon-height: 100px;
+  --icon-border: 5px solid red;
+  --icon-background-color: rgba(0,0,0,.5);
+}
+/* .toggle-type{
   --size: 16px;
   --color: skyblue;
   --font-color: #fff;
@@ -90,5 +111,6 @@ export default {
 .theme-dark{
   --globle-color: #fff;
   --globle-bgColor: #000;
-}
+} */
+
 </style>

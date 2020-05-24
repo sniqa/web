@@ -1,9 +1,6 @@
 <template>
   <transition name="overlays">
-       <!-- @after-enter="afterEnter"
-    @after-leave="afterLeave" -->
-    <div class="overlays" v-show="isShow">
-      <button @click="btnOnClick" class="overlays-btn">Hide overlays</button>  
+    <div class="overlays" v-show="isShow" @click="onClick">
       <slot></slot>
     </div>  
   </transition>
@@ -25,6 +22,9 @@ export default {
   methods: {
     btnOnClick(){
       this.$emit("update:open", false)
+    },
+    onClick(){
+      this.$emit("click", event)
     }
   },
   watch: {
@@ -37,8 +37,14 @@ export default {
   }
 }
 </script>
-
 <style>
+.overlays-default{
+
+}
+</style>
+
+<style scoped>
+
 .overlays{
   background-color: rgba(0, 0, 0, .5);
   position: fixed;

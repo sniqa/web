@@ -1,18 +1,5 @@
 <template>
-  <div class="home">
-    <Navgation>
-      <Logo slot="left"></Logo>
-      <h2 slot="left">sniqa</h2>
-      <!-- <h2 slot="middle">sniqa</h2> -->
-       <SearchBar  slot="middle"></SearchBar>
-
-      
-     <NavMenu slot="right"></NavMenu>
-
-    </Navgation>
-
-    <!-- <SwitchToggle @switchToggleStatus="modelToggle"></SwitchToggle> -->
-  </div>
+  <nav-top></nav-top>
 </template>
 
 <script>
@@ -22,6 +9,7 @@ import SearchBar from '@/components/SearchBar.vue'
 import NavMenu from '@/components/NavMenu.vue'
 import Logo from '@/components/Logo.vue'
 import Icon from '@/components/Icon.vue'
+import NavTop from '@/components/layouts/NavTop.vue'
 export default {
   components: {
     Navgation,
@@ -29,7 +17,8 @@ export default {
     SwitchToggle,
     Icon,
     Logo,
-    NavMenu
+    NavMenu,
+    NavTop
   },
   data () {
     return {

@@ -1,7 +1,7 @@
 <template>
-  <Overlays :open.sync="show">
-      <transition>
-          <div class="drawer">
+  <Overlays :open.sync="show" @click="onClick">
+      <transition :name="zclass">
+          <div class="drawer-default drawer" v-if="show" :class="zclass" ref="drawer">
               <slot></slot>
           </div>
       </transition>
@@ -15,6 +15,10 @@ export default {
         open: {
             type: Boolean,
             default: false
+        },
+        zclass:{
+          type: String,
+          default: 'drawer-left'
         }
     },
     data(){
@@ -28,28 +32,87 @@ export default {
     watch: {
         open: {
             handler(value){
-            this.show = value
-        },
+              this.show = value
+            },
             immediate: true
         },
         show: {
             handler(value){
-            this.$emit("update:open", value)
-        },
+              this.$emit("update:open", value)
+            },
             immediate: true
         }
-    }
+    },
+    methods: {
+      onClick(e){
+       this.show = this.$refs.drawer === e.target ? true : false
+      }
+    },
 }
 </script>
 
 <style>
+
+.drawer-default{
+  --drawer-height: 50%;
+  --drawer-width: 50%;
+  --background--color: #fff;
+  --font-colr: skyblue;
+  --font-size: 18px;
+}
+</style>
+<style scoped>
+
 .drawer{
-    position: absolute;
-    top: 0; 
-    right: 0;
+    position: absolute;   
     z-index: 1000;
-    background-color: aliceblue;
-    width: 50%;
-    height: 100%;
+    background-color: var(--background--color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-colr);
+    font-size: var(--font-size);
+}
+.drawer-top{
+  top: 0; 
+  right: 0;
+  left: 0;
+  height: var(--drawer-height);
+
+}
+.drawer-bottom{
+  bottom: 0; 
+  right: 0;
+  left: 0;
+  height: var(--drawer-height);
+}
+.drawer-left{
+  top: 0; 
+  bottom: 0;
+  left: 0;
+  width: var(--drawer-width);
+}
+.drawer-right{
+  top: 0; 
+  bottom: 0;
+  right: 0;
+  width: var(--drawer-width);
+}
+.drawer-left-enter-active, .drawer-left-leave-active,
+.drawer-right-enter-active, .drawer-right-leave-active {
+  transition: width .5s;
+}
+.drawer-left-enter, .drawer-left-leave-to,
+.drawer-right-enter, .drawer-right-leave-to {
+  width: 0;
+}
+.drawer-top-enter-active, .drawer-top-leave-active,
+.drawer-bottom-enter-active, .drawer-bottom-leave-active {
+  transition: height .5s;
+}
+.drawer-top-enter, .drawer-top-leave-to,
+.drawer-bottom-enter, .drawer-bottom-leave-to {
+  height: 0;
 }
 </style>
