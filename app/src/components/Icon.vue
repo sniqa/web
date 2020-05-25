@@ -23,10 +23,10 @@ export default {
 .icon-default{
   --icon-size: 24px;
   --icon-color: #000;
-  --icon-width: 50px;
-  --icon-height: 50px;
-  --icon-border: 1px solid green;
-  --icon-background-color: #fff;
+  --icon-width: 24px;
+  --icon-height: 24px;
+  --icon-border: 0;
+  --icon-background-color: inherit;
 }
 </style>
 

@@ -12,16 +12,16 @@ export default {
 
 <style>
 .flex-item-default{
-  --flex-grow: 1;
-  --justify-content: flex-start;
-  --align-items: flex-start;
+  --flex-item-flex-grow: 1;
+  --flex-item-justify-content: flex-start;
+  --flex-item-align-items: flex-start;
 }
 </style>
 <style scoped>
 .flex-item{
-  flex-grow: var(--flex-grow);
+  flex-grow: var(--flex-item-flex-grow);
   display: flex;
-  justify-content: var(--justify-content);
-  align-items: var(--align-items);
+  justify-content: var(--flex-item-justify-content);
+  align-items: var(--flex-item-align-items);
 }
 </style>

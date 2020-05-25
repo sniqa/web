@@ -1,6 +1,6 @@
 <template>
   <transition name="overlays">
-    <div class="overlays" v-show="isShow" @click="onClick">
+    <div class="overlays-default overlays" v-show="isShow" @click="onClick">
       <slot></slot>
     </div>  
   </transition>

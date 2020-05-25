@@ -16,7 +16,12 @@
 
        </Drawer> -->
   <!-- <work-area></work-area> -->
-    <icon name="settings" class="icon-type"></icon>
+    <!-- <icon name="settings" class="icon-type"></icon> -->
+    <icon-drawer icon="menu" iconType="icon-type" 
+      drawerDirection="drawer-bottom" drawerType="drawer-type-settings"
+    >
+      hello
+    </icon-drawer>
   </div>
 </template>
 
@@ -31,6 +36,7 @@ import Icon from '@/components/Icon.vue'
 import Drawer from '@/components/Drawer.vue'
 import Overlays from '@/components/Overlays.vue'
 import WorkArea from '@/components/WorkArea.vue'
+import IconDrawer from '@/components/IconDrawer.vue'
 
 export default {
   components: {
@@ -43,6 +49,7 @@ export default {
     Drawer,
     Overlays,
     WorkArea,
+    IconDrawer
   },
    data() {
       return {
@@ -74,6 +81,19 @@ export default {
   box-sizing: border-box;
   border: 1px solid red;
 } */
+
+.icon-type{
+  --icon-height: 50px;
+  --icon-width: 50px;
+  --icon-size: 32px;
+  --icon-border: 1px solid red;
+}
+
+.drawer-type-settings{
+  --drawer-background-color: #515315;
+}
+
+
 .icon-drawer-type{
     --border-radius: 0;
     --font-size: 16px;
@@ -88,14 +108,14 @@ export default {
   --drawer-width: 200px;
 }
 
-.icon-type{
+/* .icon-type{
   --icon-size: 96px;
   --icon-color: #dddd;
   --icon-width: 100px;
   --icon-height: 100px;
   --icon-border: 5px solid red;
   --icon-background-color: rgba(0,0,0,.5);
-}
+} */
 /* .toggle-type{
   --size: 16px;
   --color: skyblue;

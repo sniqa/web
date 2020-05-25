@@ -1,11 +1,12 @@
 <template>
-  <div class="icon-drawer-default icon-drawer">
-    <Icon :name="icon" @click="show = !show" :class="iconClass"></Icon>
-        <Drawer :open.sync="show" :zclass="drawercCass">
-         
-            <slot></slot>
-         
-        </Drawer>  
+  <div class="icon-drawer">
+    <icon :name="icon" :class="iconType" @click="open=true"></icon>
+    <drawer :open.sync="open"
+      :direction="drawerDirection"
+      :drawerType="drawerType"
+    >
+      <slot></slot>
+    </drawer>
   </div>
 </template>
 
@@ -13,75 +14,38 @@
 import Icon from '@/components/Icon.vue'
 import Drawer from '@/components/Drawer.vue'
 export default {
+   components: {
+    Icon,
+    Drawer
+  },
   props: {
     icon: {
       type: String,
-      default: 'settings'
+      default: 'menu'
     },
-    iconClass: {
+    iconType: {
       type: String,
       default: ''
     },
-    drawercCass: {
+    drawerDirection: {
       type: String,
-      default: "drawer-left"
+      default: ''
     },
+    drawerType: {
+      type: String,
+      default: ''
+    }
   },
-    components: {
-        Icon,
-        Drawer
-    },
-    data(){
-        return{
-            val: '',
-            show: false
-        }
-    },
-    methods: {
-      onClick(e){
-       this.show = this.$refs.content === e.target ? true : false
-      }
-    },
-  
+  data(){
+    return{
+      open: false,
+      drawerDirection: '',
+      drawerType: ''
+    }
+  },
 }
 </script>
 
 <style>
-
-.icon-drawer-default{
-    --border-radius: 0;
-    --border-color: #fff;
-    --icon-height: 50px;
-    --icon-width: 50px;
-}
-
-</style>
-<style scoped>
-.icon-drawer{
-  display: inline-flex;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: var(--icon-height);
-  width: var(--icon-width);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  background-color: var(--border-color);
-}
-
-
-
-
-/* @media screen and (max-width: 800px){
-    .search-bar input{
-        width: 0;
-        height: 0;
-        background-color: transparent;
-    }
-    .search-bar{
-        background-color: transparent;
-
-    }
-} */
 
 </style>

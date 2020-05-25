@@ -1,7 +1,7 @@
 <template>
   <Overlays :open.sync="show" @click="onClick">
-      <transition :name="zclass">
-          <div class="drawer-default drawer" v-if="show" :class="zclass" ref="drawer">
+      <transition :name="direction">
+          <div class="drawer-default drawer" v-if="show" :class="direction + ' ' + drawerType" ref="drawer">
               <slot></slot>
           </div>
       </transition>
@@ -16,9 +16,13 @@ export default {
             type: Boolean,
             default: false
         },
-        zclass:{
+        direction:{
           type: String,
           default: 'drawer-left'
+        },
+        drawerType:{
+          type: String,
+          default: ''
         }
     },
     data(){
@@ -56,9 +60,9 @@ export default {
 .drawer-default{
   --drawer-height: 50%;
   --drawer-width: 50%;
-  --background--color: #fff;
-  --font-colr: skyblue;
-  --font-size: 18px;
+  --drawer-background-color: #fff;
+  --drawer-font-colr: skyblue;
+  --drawer-font-size: 18px;
 }
 </style>
 <style scoped>
@@ -66,13 +70,13 @@ export default {
 .drawer{
     position: absolute;   
     z-index: 1000;
-    background-color: var(--background--color);
+    background-color: var(--drawer-background-color);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    color: var(--font-colr);
-    font-size: var(--font-size);
+    color: var(--drawerfont-colr);
+    font-size: var(--drawer-font-size);
 }
 .drawer-top{
   top: 0; 
