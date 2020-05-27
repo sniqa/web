@@ -1,8 +1,5 @@
 <template>
-  <div class="switch-toggle" ref="switchToggle" >
-    <input type="checkbox" name="toggle" id="switchToggle" :checked="on">
-    <label for="switchToggle" class="switch-toggle-label" 
-            @click="popStatus"></label>
+  <div class="toggle-default toggle" @click="popStatus" :class="{'toggle-status-true': toggleStatus, 'toggle-status-false': !toggleStatus}">
   </div>
 </template>
 
@@ -11,86 +8,59 @@ export default {
   props: {
     on: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {
     return {
-      switchStatus: this.on
+      toggleStatus: this.on
     }
   },
   methods: {
-    popStatus(){
-      this.switchStatus = !this.switchStatus
-      this.$emit("switchToggleStatus", this.switchStatus)
+    popStatus(event){
+      this.toggleStatus = !this.toggleStatus
+      this.$emit("update:on", this.toggleStatus)      
     }
   }
 }
 </script>
 
+<style>
+.toggle-default{
+  --toggle-size: 1em;
+  --toggle-true-bg-color: rgb(89, 117, 158);
+  --toggle-false-bg-color: #ccc;
+  --toggle-swtich-color: #fff;
+  --toggle-round: 1;
+  --toggle-border-size: 2px;
+}
+</style>
+
 <style scoped>
-.switch-toggle{
-  --size: 1em;
-  --color: skyblue;
-  --font-color: #fff;
-  --background: rgb(89, 117, 158);
-  --foreground: #dddddd;
-  --showText: none;  
-  --round: 1;
+.toggle{
+  border: var(--toggle-border-size) solid transparent;
+  height: var(--toggle-size);
+  width: calc(var(--toggle-size) * 2);
+  box-sizing: border-box;
+  border-radius: calc(var(--toggle-size) * var(--toggle-round));
+  display: flex;
 }
-
-.switch-toggle > input{
-  display: none;
-}
-.switch-toggle > .switch-toggle-label{
-  display: block;
-  width: calc(var(--size) * 2);
-  height: var(--size);
-  text-align: left;
-  position: relative;
-  background: var(--foreground);
-  border-radius: calc(var(--size) * var(--round));
-}
-
-.switch-toggle > .switch-toggle-label::before{
-  content: 'OFF';
-  display: var(--showText);
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  color: var(--font-color);
-  font-size: calc(var(--size) * 0.5);
-
-  width: 50%;
-  height: 100%;
-  line-height: inherit;
-  top: 0;
-  left: 50%;
-}
-
-
-
-.switch-toggle > .switch-toggle-label::after
-{
+.toggle::after{
   content: '';
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: var(--color);
-  transition: left .3s;
-  border-radius: inherit;
+  height:  calc(var(--toggle-size) - var(--toggle-border-size) * 2);
+  width: calc(var(--toggle-size) - var(--toggle-border-size) * 2);
+  background-color: var(--toggle-swtich-color);
+  border-radius: calc(var(--toggle-size) * var(--toggle-round));
+  box-sizing: border-box;
 }
-#switchToggle:checked + .switch-toggle-label::after {
-  left: 50%;
+
+.toggle-status-true{
+  justify-content: flex-end;
+  background-color: var(--toggle-true-bg-color);
 }
-#switchToggle:checked + .switch-toggle-label::before {
-  left: 0;
-  content: 'ON';
-}
-#switchToggle:checked + .switch-toggle-label {
-  background-color: var(--background);
+.toggle-status-false{
+  justify-content: flex-start;
+  background-color: var(--toggle-false-bg-color);
 }
 </style>

@@ -17,9 +17,8 @@
        </Drawer> -->
   <!-- <work-area></work-area> -->
     <!-- <icon name="settings" class="icon-type"></icon> -->
-    <icon-drawer icon="menu" iconType="icon-type" 
-      drawerDirection="drawer-bottom" drawerType="drawer-type-settings"
-    >
+    <icon-drawer icon="menu" drawerDirection="bottom" 
+      iconType="icon-type" drawerType="drawer-type">
       hello
     </icon-drawer>
   </div>
@@ -83,30 +82,24 @@ export default {
 } */
 
 .icon-type{
-  --icon-height: 50px;
+  --icon-size: 30px;
+  --icon-color: #000;
   --icon-width: 50px;
-  --icon-size: 32px;
-  --icon-border: 1px solid red;
+  --icon-height: 50px;
+  --icon-background-color: inherit;
+}
+.drawer-type{
+  --drawer-height: 50%;
+  --drawer-width: 50%;
+  --drawer-background-color: #fff;
+  --drawer-font-colr: skyblue;
+  --drawer-font-size: 18px;
+  --overlays-background-color: rgba(0, 0, 0, 0);
 }
 
-.drawer-type-settings{
-  --drawer-background-color: #515315;
-}
 
 
-.icon-drawer-type{
-    --border-radius: 0;
-    --font-size: 16px;
-    --border-color: #fff;
-    --drawer--height: 100px;
-    --drawer--width: 100px;
-    --icon-height: 50px;
-    --icon-width: 50px;
-    --icon-size: 24px;
-}
-.drawer-left{
-  --drawer-width: 200px;
-}
+
 
 /* .icon-type{
   --icon-size: 96px;

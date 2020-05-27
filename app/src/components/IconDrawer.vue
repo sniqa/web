@@ -1,9 +1,9 @@
 <template>
-  <div class="icon-drawer">
-    <icon :name="icon" :class="iconType" @click="open=true"></icon>
+  <div>
+    <icon :name="icon" @click="open=true" :class="iconType"></icon>
     <drawer :open.sync="open"
       :direction="drawerDirection"
-      :drawerType="drawerType"
+      :class="drawerType"
     >
       <slot></slot>
     </drawer>
@@ -38,9 +38,7 @@ export default {
   },
   data(){
     return{
-      open: false,
-      drawerDirection: '',
-      drawerType: ''
+      open: false
     }
   },
 }

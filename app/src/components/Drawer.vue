@@ -1,7 +1,7 @@
 <template>
-  <Overlays :open.sync="show" @click="onClick">
-      <transition :name="direction">
-          <div class="drawer-default drawer" v-if="show" :class="direction + ' ' + drawerType" ref="drawer">
+  <Overlays :open.sync="show" @click="onClick" class="drawer-default">
+      <transition :name="'drawer-' + direction">
+          <div class="drawer" v-if="show" :class="'drawer-' + direction " ref="drawer" @click="drawerOnClick">
               <slot></slot>
           </div>
       </transition>
@@ -18,11 +18,7 @@ export default {
         },
         direction:{
           type: String,
-          default: 'drawer-left'
-        },
-        drawerType:{
-          type: String,
-          default: ''
+          default: 'left'
         }
     },
     data(){
@@ -48,8 +44,11 @@ export default {
         }
     },
     methods: {
-      onClick(e){
-       this.show = this.$refs.drawer === e.target ? true : false
+      onClick(event){
+        this.show = false
+      },
+      drawerOnClick(event){
+        event.stopPropagation()
       }
     },
 }
@@ -64,8 +63,12 @@ export default {
   --drawer-font-colr: skyblue;
   --drawer-font-size: 18px;
 }
+
 </style>
+
+
 <style scoped>
+
 
 .drawer{
     position: absolute;   
@@ -83,25 +86,30 @@ export default {
   right: 0;
   left: 0;
   height: var(--drawer-height);
-
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+  
 }
 .drawer-bottom{
   bottom: 0; 
   right: 0;
   left: 0;
   height: var(--drawer-height);
+  box-shadow: -5px -5px 10px rgba(0, 0, 0, .2);
+
 }
 .drawer-left{
   top: 0; 
   bottom: 0;
   left: 0;
   width: var(--drawer-width);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
 }
 .drawer-right{
   top: 0; 
   bottom: 0;
   right: 0;
   width: var(--drawer-width);
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, .2);
 }
 .drawer-left-enter-active, .drawer-left-leave-active,
 .drawer-right-enter-active, .drawer-right-leave-active {
