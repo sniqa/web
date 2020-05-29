@@ -4,7 +4,7 @@
 
 <script>
 import Navgation from '@/components/Navgation.vue'
-import SwitchToggle from '@/components/SwitchToggle.vue'
+import Toggle from '@/components/Toggle.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import NavMenu from '@/components/NavMenu.vue'
 import Logo from '@/components/Logo.vue'
@@ -14,7 +14,7 @@ export default {
   components: {
     Navgation,
     SearchBar,
-    SwitchToggle,
+    Toggle,
     Icon,
     Logo,
     NavMenu,

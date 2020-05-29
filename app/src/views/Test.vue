@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import SwitchToggle from '@/components/SwitchToggle.vue'
+import Toggle from '@/components/Toggle.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import NavMenu from '@/components/NavMenu.vue'
@@ -39,7 +39,7 @@ import IconDrawer from '@/components/IconDrawer.vue'
 
 export default {
   components: {
-    SwitchToggle,
+    Toggle,
     SearchBar,
     SideBar,
     NavMenu,
@@ -94,7 +94,7 @@ export default {
   --drawer-background-color: #fff;
   --drawer-font-colr: skyblue;
   --drawer-font-size: 18px;
-  --overlays-background-color: rgba(0, 0, 0, 0);
+  --overlays-background-color: rgba(0, 0, 0, 0); 
 }
 
 

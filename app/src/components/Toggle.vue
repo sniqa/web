@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    popStatus(event){
+    popStatus(){
       this.toggleStatus = !this.toggleStatus
       this.$emit("update:on", this.toggleStatus)      
     }

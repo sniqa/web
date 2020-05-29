@@ -1,18 +1,22 @@
 <template>
   <div class="setting">
-      <switch-toggle label="dark model"></switch-toggle>
+      <theme></theme>
+      <div class="tests">hello world</div>
   </div>
 </template>
 
 <script>
-import SwitchToggle from '@/components/SwitchToggle.vue'
+import Theme from '@/components/Theme.vue'
 export default {
     components: {
-        SwitchToggle
+        Theme
     }
 }
 </script>
 
 <style>
-
+.tests{
+    color: var(--globle-color);
+    background-color: var(--globle-bg-color);
+}
 </style>
