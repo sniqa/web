@@ -1,5 +1,6 @@
 <template>
 	<toggle :on.sync="isLight">
+
 	</toggle>
 </template>
 
@@ -19,14 +20,16 @@ export default {
 			isLight: true,
       el: Object
 		}		
-	},
+  },
+  methods: {
+    
+  },
   created () {
     this.el = document.querySelector('html')
   },
 	updated(){
     this.$root.className = this.isLight ? "theme-dark" : "theme-light"
-		console.log(this.$root);
-    
+
 	},
   components: {
 		Toggle,
@@ -45,5 +48,16 @@ export default {
 
 <style>
 
+ :root{
+   --model: dark;
+   --prefers-color-scheme: var(--model);
+ }
+
+@media (prefers-color-scheme: dark){
+  :root{
+    background: blue;
+    color: chartreuse;
+  }
+}
 
 </style>

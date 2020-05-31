@@ -1,6 +1,7 @@
 <template>
   <div>
     <nav-top></nav-top>
+    <button  @click="dark">22222</button>
   </div>
 </template>
 
@@ -36,9 +37,32 @@ export default {
     modelToggle(val){
       if(val){
 
-      }
-      
+      }    
+    },
+    onClick(){
+      let listeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      alert('您切换到深色模式了！')
     }
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      alert('您切换到浅色模式了！')
+    }
+  }
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addListener(listeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(listeners.light)
+    },
+    dark(){
+         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        console.log('您切换到深色模式了！')
+    } else {
+        console.log('您切换到浅色模式了！')
+    }
+    }      
   }
 }
 </script>
