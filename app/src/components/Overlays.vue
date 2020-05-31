@@ -40,6 +40,8 @@ export default {
 <style>
 .overlays-default{
   --overlays-background-color: rgba(0, 0, 0, .5);
+  /* --overlays-justify-content: flex-start;
+  --overlays-align-items: flex-start; */
 }
 </style>
 
@@ -49,6 +51,9 @@ export default {
   background-color: var(--overlays-background-color);
   position: fixed;
   z-index: 999;
+  /* display: flex;
+  justify-content: var(--overlays-justify-content);
+  align-items: var(--overlays-align-items); */
   top: 0;
   bottom: 0;
   right: 0;

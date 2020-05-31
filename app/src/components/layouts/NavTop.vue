@@ -12,7 +12,7 @@
         <icon-drawer icon="search" iconType="icon-type"
           drawerDirection="top" drawerType="drawer-type-search"></icon-drawer>
         <icon-drawer icon="person" iconType="icon-type"
-          drawerDirection="right" drawerType="drawer-type-person"></icon-drawer>
+          drawerDirection="center" drawerType="drawer-type-person"></icon-drawer>
         <icon-drawer icon="settings" iconType="icon-type"
           drawerDirection="bottom" drawerType="drawer-type-settings">
           <settings></settings>  
@@ -72,18 +72,22 @@ export default {
 
 .drawer-type-menu{
   --drawer-width: 20%;
-  --overlays-background-color: transparent;
+  /* --overlays-background-color: transparent; */
 }
 .drawer-type-search{
   --drawer-height: 20%;
-  --overlays-background-color: transparent;
+  /* --overlays-background-color: transparent; */
 }
 .drawer-type-person{
   --overlays-background-color: transparent;
+  /* --overlays-justify-content: center;
+  --overlays-align-items: center; */
+  --drawer-height: 300px;
+  --drawer-width: 300px;
 }
 .drawer-type-settings{
   --drawer-height: 50%;
-  --overlays-background-color: transparent;
+  /* --overlays-background-color: transparent; */
 }
 
 

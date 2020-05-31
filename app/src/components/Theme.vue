@@ -1,7 +1,5 @@
 <template>
 	<toggle :on.sync="isLight">
-		<theme-light v-if="isLight"></theme-light>
-		<theme-dark v-else></theme-dark>
 	</toggle>
 </template>
 
@@ -18,12 +16,17 @@ export default {
 	},
 	data() {
 		return {
-			isLight: true
+			isLight: true,
+      el: Object
 		}		
 	},
+  created () {
+    this.el = document.querySelector('html')
+  },
 	updated(){
-		console.log(this.isLight);
-		
+    this.$root.className = this.isLight ? "theme-dark" : "theme-light"
+		console.log(this.$root);
+    
 	},
   components: {
 		Toggle,
@@ -35,7 +38,8 @@ export default {
 
 <style>
 
-.theme-dark {     filter: invert(100) hue-rotate(180deg); } .theme-dark img {     filter: invert(100) hue-rotate(180deg); }
+.theme-dark {   filter: invert(100) hue-rotate(180deg);  }
+/* .theme-dark img {     filter: invert(100) hue-rotate(180deg); } */
 
 </style>
 

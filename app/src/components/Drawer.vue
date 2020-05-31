@@ -57,8 +57,8 @@ export default {
 <style>
 
 .drawer-default{
-  --drawer-height: 50%;
-  --drawer-width: 50%;
+  --drawer-height: 500px;
+  --drawer-width: 500px;
   --drawer-background-color: #fff;
   --drawer-font-colr: skyblue;
   --drawer-font-size: 18px;
@@ -87,6 +87,16 @@ export default {
   left: 0;
   height: var(--drawer-height);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+  
+}
+.drawer-center{
+  top: 50%;
+  left: 50%;
+  margin-top: calc(var(--drawer-height) / 2 * -1);
+  margin-left: calc(var(--drawer-width) / 2 * -1);
+  height: var(--drawer-height);
+  width: var(--drawer-width);
+  box-shadow: 2px 2px 10px 8px rgba(0, 0, 0, .2);
   
 }
 .drawer-bottom{
@@ -126,5 +136,15 @@ export default {
 .drawer-top-enter, .drawer-top-leave-to,
 .drawer-bottom-enter, .drawer-bottom-leave-to {
   height: 0;
+}
+.drawer-center-enter-active, .drawer-center-leave-active {
+  transition: .5s;
+}
+.drawer-center-enter, .drawer-center-leave-to {
+  margin-top: 0;
+  margin-left: 0;
+  height: 0;
+  width: 0;
+
 }
 </style>
