@@ -1,7 +1,19 @@
 <template>
   <div>
     <nav-top></nav-top>
-    <button  @click="dark">22222</button>
+    <!-- <button  @click="dark">22222</button> -->
+    <flex-container class="card-flex-container">
+
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+    </flex-container>
   </div>
 </template>
 
@@ -13,6 +25,8 @@ import NavMenu from '@/components/NavMenu.vue'
 import Logo from '@/components/Logo.vue'
 import Icon from '@/components/Icon.vue'
 import NavTop from '@/components/layouts/NavTop.vue'
+import Card from '@/components/Card.vue'
+import FlexContainer from '@/components/flex/FlexContainer.vue'
 export default {
   components: {
     Navgation,
@@ -21,7 +35,9 @@ export default {
     Icon,
     Logo,
     NavMenu,
-    NavTop
+    NavTop,
+    Card,
+    FlexContainer
   },
   data () {
     return {
@@ -68,5 +84,14 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(listeners.light)
 </script>
 
 <style>
+.card-flex-container{
+  --justify-content: space-around;
+  --align-items: flex-start;
+  --flex-wrap: wrap;
+  --padding: 1% 5%;
+}
+.p{
+  justify-content:space-between ;
+}
 
 </style>
