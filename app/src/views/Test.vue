@@ -17,10 +17,11 @@
        </Drawer> -->
   <!-- <work-area></work-area> -->
     <!-- <icon name="settings" class="icon-type"></icon> -->
-    <icon-drawer icon="menu" drawerDirection="bottom" 
+    <!-- <icon-drawer icon="menu" drawerDirection="bottom" 
       iconType="icon-type" drawerType="drawer-type">
       hello
-    </icon-drawer>
+    </icon-drawer> -->
+    <msg></msg>
   </div>
 </template>
 
@@ -36,6 +37,7 @@ import Drawer from '@/components/Drawer.vue'
 import Overlays from '@/components/Overlays.vue'
 import WorkArea from '@/components/WorkArea.vue'
 import IconDrawer from '@/components/IconDrawer.vue'
+import msg from '@/components/msg.vue'
 
 export default {
   components: {
@@ -48,7 +50,8 @@ export default {
     Drawer,
     Overlays,
     WorkArea,
-    IconDrawer
+    IconDrawer,
+    msg
   },
    data() {
       return {
