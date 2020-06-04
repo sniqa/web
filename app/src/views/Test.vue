@@ -21,7 +21,8 @@
       iconType="icon-type" drawerType="drawer-type">
       hello
     </icon-drawer> -->
-    <msg></msg>
+    <!-- <msg></msg> -->
+    <login></login>
   </div>
 </template>
 
@@ -38,6 +39,7 @@ import Overlays from '@/components/Overlays.vue'
 import WorkArea from '@/components/WorkArea.vue'
 import IconDrawer from '@/components/IconDrawer.vue'
 import msg from '@/components/msg.vue'
+import Login from '@/components/Login.vue'
 
 export default {
   components: {
@@ -51,7 +53,8 @@ export default {
     Overlays,
     WorkArea,
     IconDrawer,
-    msg
+    msg,
+    Login
   },
    data() {
       return {
@@ -83,7 +86,12 @@ export default {
   box-sizing: border-box;
   border: 1px solid red;
 } */
-
+.test{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
 .icon-type{
   --icon-size: 30px;
   --icon-color: #000;

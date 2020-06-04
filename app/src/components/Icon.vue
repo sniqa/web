@@ -1,6 +1,6 @@
 <template>
-<div class="icon icon-default" @click="onClick">
-  <i class="material-icons">{{ name }}</i>
+<div :class="[ $style['icon-default'], $style.icon]" @click="onClick">
+  <i class="material-icons" :class="$style['icon-size']">{{ name }}</i>
 </div>
 </template>
 
@@ -19,19 +19,16 @@ export default {
   }
 }
 </script>
-<style>
+
+<style module>
 .icon-default{
-  --icon-size: 24px;
+  --icon-size: 26px;
   --icon-color: #000;
-  --icon-width: 24px;
-  --icon-height: 24px;
+  --icon-width: 26px;
+  --icon-height: 26px;
   --icon-border: 0;
   --icon-background-color: inherit;
 }
-</style>
-
-
-<style scoped>
 
 .icon{
   display: inline-flex;
@@ -40,12 +37,15 @@ export default {
   box-sizing: border-box;
   height: var(--icon-height);
   width: var(--icon-width);
+  min-width: var(--icon-width);
   color: var(--icon-color);
   border: var(--icon-border);
   background-color: var(--icon-background-color);
-}
-.material-icons{
   cursor: pointer;
+}
+.icon .icon-size{
   font-size: var(--icon-size);
 }
 </style>
+
+
