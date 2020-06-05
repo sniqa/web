@@ -25,6 +25,10 @@ export default {
 		max: {
 			type: Number,
 			default: 16
+		},
+		value: {
+			type: String,
+			default: ''
 		}
 	},
 	data() {
@@ -34,10 +38,19 @@ export default {
 			ifLastIcon: false,
 			ifShowPasswd: false,
 			isPasswd: this.type,
-			inputVal: '',
 			nextIcon: ''
 		}
 	},
+	computed:{
+    inputVal: {
+      get() {
+         return this.value; 
+      },
+      set(value) {
+        this.$emit('input', value);
+      }
+    }
+  },
 	watch: {
 		preIcon: {
       handler(value){
@@ -47,8 +60,6 @@ export default {
 		},
 		type: {
       handler(value){
-				console.log(this.type);
-				
         this.ifLastIcon = value === 'password'
       },
       immediate: true
@@ -60,7 +71,7 @@ export default {
 				}
 				if(curVal != ''){
 					this.ifNextIcon = true
-					this.nextIcon = 'cancel'
+					this.nextIcon = 'clear'
 				}else{
 					this.ifNextIcon = false
 					this.nextIcon = ''

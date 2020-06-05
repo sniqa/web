@@ -1,5 +1,7 @@
 <template>
-  <div class="toggle-default toggle" @click="popStatus" :class="{'toggle-status-true': toggleStatus, 'toggle-status-false': !toggleStatus}">
+  <div :class="[$style['toggle-default'], $style.toggle,
+   { [$style['toggle-status-true']]: toggleStatus, [$style['toggle-status-false']]: !toggleStatus} ]"
+   @click="popStatus">
   </div>
 </template>
 
@@ -25,25 +27,22 @@ export default {
 }
 </script>
 
-<style>
+<style module>
 .toggle-default{
   --toggle-size: 1em;
-  --toggle-true-bg-color: rgb(89, 117, 158);
-  --toggle-false-bg-color: #ccc;
-  --toggle-swtich-color: #fff;
+  --toggle-true-bg-color: rgb(138, 134, 148);
+  --toggle-false-bg-color: rgb(214, 211, 211);
+  --toggle-swtich-color: rgba(51, 46, 122, 0.8);
   --toggle-round: 1;
   --toggle-border-size: 2px;
 }
-</style>
-
-<style scoped>
 .toggle{
   border: var(--toggle-border-size) solid transparent;
   height: var(--toggle-size);
   width: calc(var(--toggle-size) * 2);
   box-sizing: border-box;
   border-radius: calc(var(--toggle-size) * var(--toggle-round));
-  display: flex;
+  display: inline-flex;
 }
 .toggle::after{
   content: '';
