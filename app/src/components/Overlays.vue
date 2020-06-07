@@ -40,27 +40,27 @@ export default {
 <style>
 .overlays-default{
   --overlays-background-color: rgba(0, 0, 0, .5);
-  /* --overlays-justify-content: flex-start;
-  --overlays-align-items: flex-start; */
+  --overlays-justify-content: flex-start;
+  --overlays-align-items: flex-start;
 }
 </style>
 
-<style scoped>
+<style>
 
 .overlays{
   background-color: var(--overlays-background-color);
   position: fixed;
   z-index: 999;
-  /* display: flex;
+  display: flex;
   justify-content: var(--overlays-justify-content);
-  align-items: var(--overlays-align-items); */
+  align-items: var(--overlays-align-items);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
 }
 .overlays-enter-active, .overlays-leave-active {
-  transition: opacity .5s;
+  transition: opacity 3.5s;
 }
 .overlays-enter, .overlays-leave-to {
   opacity: 0;

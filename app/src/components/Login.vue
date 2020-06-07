@@ -1,17 +1,17 @@
 <template>
   <div :class="$style.login">
-		<div>Sign in</div>
-		<new-input	preIcon="person" v-model="username"></new-input>
-		<new-input  preIcon="lock" type="password" v-model="psw"></new-input>
-		<new-button value="Sign in" @click="btnOnClick" :class="$style['login-item-btn']"
-			:disabled="!ifAgree"
-			></new-button>
-		<div :class="$style['login-container']">
-			<label for="login-checkbox">
-				<toggle :class="$style['login-toggle']" :on.sync="ifAgree"></toggle>{{ agreement }}
-			</label>
-			<a href="">{{ forget_password }}</a>
-		</div>
+    <div>Sign in</div>
+    <new-input	preIcon="person" v-model="username"></new-input>
+    <new-input  preIcon="lock" type="password" v-model="psw"></new-input>
+    <new-button value="Sign in" @click="btnOnClick" :class="$style['login-item-btn']"
+      :disabled="!ifAgree"
+      ></new-button>
+    <div :class="$style['login-container']">
+      <label for="login-checkbox">
+        <toggle :class="$style['login-toggle']" :on.sync="ifAgree"></toggle>{{ agreement }}
+      </label>
+      <a href="">{{ forget_password }}</a>
+    </div>
   </div>
 </template>
 
@@ -45,8 +45,10 @@ export default {
 </script>
 
 <style module>
+
 	.login{
-		background-color: #1b2b3b;
+		/* background-color: #1b2b3b; */
+		background-color: transparent;
 		height: 280px;
 		width: 400px;
 		display: flex;
@@ -56,6 +58,7 @@ export default {
 		box-sizing: border-box;
 		padding: 20px 40px;
 		color: antiquewhite;
+    border: 1px solid #ccc;
 	}
 	.login-container{
 		width: 260px;
@@ -75,4 +78,5 @@ export default {
   	--toggle-false-bg-color: #ccc;
 		--toggle-swtich-color: #1b2b3b;
 	}
+  
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <Overlays :open.sync="show" @click="onClick" class="drawer-default">
+  <Overlays :open.sync="show" @click="onClick" :class="'drawer-' + direction ">
       <transition :name="'drawer-' + direction">
-          <div class="drawer" v-if="show" :class="'drawer-' + direction " ref="drawer" @click="drawerOnClick">
+          <div class="drawer" v-if="show"  ref="drawer" @click="drawerOnClick">
               <slot></slot>
           </div>
       </transition>
@@ -54,72 +54,63 @@ export default {
 }
 </script>
 
+
+
+
 <style>
-
-.drawer-default{
-  --drawer-height: 500px;
-  --drawer-width: 500px;
-  --drawer-background-color: #fff;
-  --drawer-font-colr: skyblue;
-  --drawer-font-size: 18px;
-}
-
-</style>
-
-
-<style scoped>
 
 
 .drawer{
-    position: absolute;   
-    z-index: 1000;
-    background-color: var(--drawer-background-color);
+   
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    color: var(--drawerfont-colr);
-    font-size: var(--drawer-font-size);
 }
-.drawer-top{
+
+.drawer-center{
+  --overlays-justify-content: center;
+  --overlays-align-items: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* top: 50%;
+  left: 50%;
+  margin-top: -25%;
+  margin-left: -50%; */
+  /* height: var(--drawer-height);
+  width: var(--drawer-width);
+  box-shadow: 2px 2px 10px 8px rgba(0, 0, 0, .2); */
+  
+}
+
+/* .drawer-top{
   top: 0; 
   right: 0;
   left: 0;
-  height: var(--drawer-height);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+ 
   
-}
-.drawer-center{
-  top: 50%;
-  left: 50%;
-  margin-top: calc(var(--drawer-height) / 2 * -1);
-  margin-left: calc(var(--drawer-width) / 2 * -1);
-  height: var(--drawer-height);
-  width: var(--drawer-width);
-  box-shadow: 2px 2px 10px 8px rgba(0, 0, 0, .2);
-  
-}
-.drawer-bottom{
+} 
+ .drawer-bottom{
   bottom: 0; 
   right: 0;
   left: 0;
-  height: var(--drawer-height);
-  box-shadow: -5px -5px 10px rgba(0, 0, 0, .2);
-
+ 
 }
 .drawer-left{
   top: 0; 
   bottom: 0;
   left: 0;
-  width: var(--drawer-width);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+ 
 }
 .drawer-right{
   top: 0; 
   bottom: 0;
   right: 0;
-  width: var(--drawer-width);
-  box-shadow: -5px 5px 10px rgba(0, 0, 0, .2);
+  
 }
 .drawer-left-enter-active, .drawer-left-leave-active,
 .drawer-right-enter-active, .drawer-right-leave-active {
@@ -136,15 +127,16 @@ export default {
 .drawer-top-enter, .drawer-top-leave-to,
 .drawer-bottom-enter, .drawer-bottom-leave-to {
   height: 0;
-}
+} */
 .drawer-center-enter-active, .drawer-center-leave-active {
-  transition: .5s;
+  transition: all 3.5s;
 }
 .drawer-center-enter, .drawer-center-leave-to {
-  margin-top: 0;
-  margin-left: 0;
+   /* margin-top: -25%;
+  margin-left: -25%; */
   height: 0;
-  width: 0;
-
+  width: 0; 
+   background: transparent; 
+   /* opacity: 0; */
 }
 </style>

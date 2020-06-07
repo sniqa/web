@@ -12,7 +12,10 @@
         <icon-drawer icon="search" iconType="icon-type"
           drawerDirection="top" drawerType="drawer-type-search"></icon-drawer>
         <icon-drawer icon="person" iconType="icon-type"
-          drawerDirection="center" drawerType="drawer-type-person"></icon-drawer>
+          drawerDirection="center" >
+          <!-- drawerType="drawer-type-person" -->
+          <login></login>
+        </icon-drawer>
         <icon-drawer icon="settings" iconType="icon-type"
           drawerDirection="bottom" drawerType="drawer-type-settings">
           <settings></settings>  
@@ -32,6 +35,7 @@ import IconDrawer from '@/components/IconDrawer.vue'
 import Settings from '@/components/settings/Settings.vue'
 import FlexContainer from '@/components/flex/FlexContainer.vue'
 import FlexItem from '@/components/flex/FlexItem.vue'
+import Login from '@/components/Login.vue'
 export default {
   components: {
     Icon,
@@ -39,7 +43,8 @@ export default {
     FlexItem,
     Drawer,
     IconDrawer,
-    Settings
+    Settings,
+    Login
   },
   data(){
     return{

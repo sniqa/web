@@ -54,10 +54,10 @@ export default {
  }
 
 @media (prefers-color-scheme: dark){
-  :root{
+  /* :root{
     background: blue;
     color: chartreuse;
-  }
+  } */
 }
 
 </style>

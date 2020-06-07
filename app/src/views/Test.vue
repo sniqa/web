@@ -1,5 +1,6 @@
 <template>
   <div class="test">
+    <button @click="ifShow = !ifShow" class="button">show</button>
     <!-- <SwitchToggle :class="'toggle-type'" :on="false" @switchToggleStatus="cc"></SwitchToggle>-->
     <!-- <SearchBar></SearchBar>  -->
     <!-- <SideBar :left="false"></SideBar> -->
@@ -22,7 +23,7 @@
       hello
     </icon-drawer> -->
     <!-- <msg></msg> -->
-    <login></login>
+    <login v-show="ifShow"></login>
   </div>
 </template>
 
@@ -61,6 +62,7 @@ export default {
         show: false,
         drawer: false,
         direction: 'rtl',
+        ifShow: true
       };
     },
     methods: {
@@ -109,7 +111,10 @@ export default {
 }
 
 
-
+.test .button{
+  position: fixed;
+  top: 0;
+}
 
 
 /* .icon-type{
