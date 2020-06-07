@@ -1,10 +1,10 @@
 <template>
-  <Overlays :open.sync="show" @click="onClick" :class="'drawer-' + direction ">
-      <transition :name="'drawer-' + direction">
-          <div class="drawer" v-if="show"  ref="drawer" @click="drawerOnClick">
-              <slot></slot>
-          </div>
-      </transition>
+  <Overlays :open.sync="show" @click="onClick" class="drawer-direction">
+    <transition :name="'drawer-' + direction">
+      <div class="drawer" ref="drawer" @click="drawerOnClick">
+        <slot></slot>
+      </div>
+    </transition>
   </Overlays>
 </template>
 
@@ -61,19 +61,16 @@ export default {
 
 
 .drawer{
-   
-    background-color: #fff;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.drawer-center{
-  --overlays-justify-content: center;
-  --overlays-align-items: center;
+.drawer-direction{
+  justify-content: center;
+  align-items: center;
   /* display: flex;
   justify-content: center;
   align-items: center; */
@@ -87,7 +84,7 @@ export default {
   
 }
 
-/* .drawer-top{
+ .drawer-top{
   top: 0; 
   right: 0;
   left: 0;
@@ -112,6 +109,9 @@ export default {
   right: 0;
   
 }
+
+</style>
+<style>
 .drawer-left-enter-active, .drawer-left-leave-active,
 .drawer-right-enter-active, .drawer-right-leave-active {
   transition: width .5s;
@@ -127,16 +127,15 @@ export default {
 .drawer-top-enter, .drawer-top-leave-to,
 .drawer-bottom-enter, .drawer-bottom-leave-to {
   height: 0;
-} */
-.drawer-center-enter-active, .drawer-center-leave-active {
+}
+ .drawer-center-enter-active, .drawer-center-leave-active {
   transition: all 3.5s;
 }
 .drawer-center-enter, .drawer-center-leave-to {
-   /* margin-top: -25%;
-  margin-left: -25%; */
-  height: 0;
-  width: 0; 
+
+  height: 400px;
+  width: 500px; 
    background: transparent; 
-   /* opacity: 0; */
-}
+   opacity: 0;
+} 
 </style>

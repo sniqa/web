@@ -1,6 +1,6 @@
 <template>
   <transition name="overlays">
-    <div class="overlays-default overlays" v-show="isShow" @click="onClick">
+    <div :class="$style.overlays" v-show="isShow" @click="onClick">
       <slot></slot>
     </div>  
   </transition>
@@ -38,29 +38,28 @@ export default {
 }
 </script>
 <style>
-.overlays-default{
-  --overlays-background-color: rgba(0, 0, 0, .5);
-  --overlays-justify-content: flex-start;
-  --overlays-align-items: flex-start;
+.overlays-enter-active, .overlays-leave-active {
+  transition: opacity 1.5s;
+}
+.overlays-enter, .overlays-leave-to {
+  opacity: 0;
 }
 </style>
 
-<style>
+<style module>
 
 .overlays{
-  background-color: var(--overlays-background-color);
+  background-color: rgba(0, 0, 0, .5);
   position: fixed;
   z-index: 999;
-  display: flex;
-  justify-content: var(--overlays-justify-content);
-  align-items: var(--overlays-align-items);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  display: flex;
 }
 .overlays-enter-active, .overlays-leave-active {
-  transition: opacity 3.5s;
+  transition: opacity 1.5s;
 }
 .overlays-enter, .overlays-leave-to {
   opacity: 0;

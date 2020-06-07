@@ -1,4 +1,5 @@
 <template>
+<transition name="login">
   <div :class="$style.login">
     <div>Sign in</div>
     <new-input	preIcon="person" v-model="username"></new-input>
@@ -13,6 +14,7 @@
       <a href="">{{ forget_password }}</a>
     </div>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -45,38 +47,45 @@ export default {
 </script>
 
 <style module>
+.login{
+	/* background-color: #1b2b3b; */
+	background-color: transparent;
+	height: 280px;
+	width: 380px;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: center;
+	/* box-sizing: border-box; */
+	padding: 20px;
+	color: antiquewhite;
+  border: 1px solid #ccc;
+}
+.login-container{
+	width: 260px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 12px;
+}
+.login-item-btn{
+	--btn-bg-color: transparent;
+	--btn-width: 260px;
+	--btn-height: 39px;
+	--btn-border: 1px solid#ccc;
+}
+.login-toggle{
+	--toggle-true-bg-color: #fff;
+	--toggle-false-bg-color: #ccc;
+	--toggle-swtich-color: #1b2b3b;
+}
 
-	.login{
-		/* background-color: #1b2b3b; */
-		background-color: transparent;
-		height: 280px;
-		width: 400px;
-		display: flex;
-		flex-flow: column;
-		justify-content: space-around;
-		align-items: center;
-		box-sizing: border-box;
-		padding: 20px 40px;
-		color: antiquewhite;
-    border: 1px solid #ccc;
-	}
-	.login-container{
-		width: 260px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 12px;
-	}
-	.login-item-btn{
-		--btn-bg-color: transparent;
-		--btn-width: 260px;
-		--btn-height: 39px;
-		--btn-border: 1px solid#ccc;
-	}
-	.login-toggle{
-		--toggle-true-bg-color: #fff;
-  	--toggle-false-bg-color: #ccc;
-		--toggle-swtich-color: #1b2b3b;
-	}
-  
+</style>
+<style>
+.login-enter-active, .login-leave-active {
+  transition: all .5s;
+}
+.login-enter, .login-leave-to {
+  padding: 80px;
+}
 </style>
