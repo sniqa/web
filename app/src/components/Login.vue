@@ -40,7 +40,18 @@ export default {
 		btnOnClick(){
 			console.log(this.username)
 			console.log(this.psw)			
-		console.log(this.ifAgree)
+			console.log(this.ifAgree)
+			this.axios({
+				baseURL: 'http://localhost:8000/phl',
+    		method: 'post',
+    		timeout: 5000,
+    		data: { login: {username: this.username, password: this.psw}},
+    		headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+			.then( (res) => console.log(res.data.login.id))
+				
 		}
 	}
 }
@@ -48,8 +59,8 @@ export default {
 
 <style module>
 .login{
-	/* background-color: #1b2b3b; */
-	background-color: transparent;
+	background-color: #1b2b3b;
+	/* background-color: transparent; */
 	height: 280px;
 	width: 380px;
 	display: flex;

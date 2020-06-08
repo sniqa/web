@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import message from './message'
+import token from './token'
 
 export default new Vuex.Store({
   state: {
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    message
+    message,
+    token
   }
 })

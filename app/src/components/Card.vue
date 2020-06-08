@@ -1,5 +1,5 @@
 <template>
-  <div class="card-default card" >
+  <div :class="[$style['card-default'], $style.card]" >
     <slot/>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style module>
 .card-default{
   --card-height: 260px;
   --card-width: 200px;

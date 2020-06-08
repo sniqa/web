@@ -129,7 +129,7 @@ export default {
   height: 0;
 }
  .drawer-center-enter-active, .drawer-center-leave-active {
-  transition: all 3.5s;
+  transition: all .5s;
 }
 .drawer-center-enter, .drawer-center-leave-to {
 

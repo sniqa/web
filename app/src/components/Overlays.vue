@@ -39,7 +39,7 @@ export default {
 </script>
 <style>
 .overlays-enter-active, .overlays-leave-active {
-  transition: opacity 1.5s;
+  transition: opacity .5s;
 }
 .overlays-enter, .overlays-leave-to {
   opacity: 0;

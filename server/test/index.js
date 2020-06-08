@@ -1,8 +1,8 @@
-const User = require('../schema/user/mongoSchema')
+const User = require('./mongoSchema')
 
 const jsonwebtoken = require('jsonwebtoken')
 
-const { secret } = require('../schema/user/DB_login_cfg')
+const { secret } = require('./DB_login_cfg')
 
 class UsersCtl {
     async findUserList(obj){
