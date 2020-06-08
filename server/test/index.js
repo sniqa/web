@@ -34,9 +34,8 @@ class UsersCtl {
 
     async login(obj){
         
-        // const { username } = args
         const user = await User.findOne(obj)
-        if(!user){ return null }
+        if(!user){ return 'error' }
         const { _id, username } = user
         const token = jsonwebtoken.sign({ _id, username}, secret, {expiresIn: '1d'})
         const id = _id

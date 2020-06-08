@@ -1,7 +1,6 @@
-import Vue from 'vue'
 import axios from 'axios'
 
-function request(config) {
+export function request(config) {
   const instance = axios.create({
     baseURL: 'http://localhost:8000/phl',
     method: 'post',
@@ -33,5 +32,3 @@ function request(config) {
 
   return instance(config)
 }
-
-Vue.use(axios)

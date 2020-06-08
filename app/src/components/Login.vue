@@ -21,6 +21,7 @@
 import NewInput from '@/components/NewInput.vue'
 import NewButton from '@/components/NewButton.vue'
 import Toggle from '@/components/Toggle.vue'
+import { login } from '@/network/login.js'
 export default {
 	components: {
 		NewInput,
@@ -33,27 +34,31 @@ export default {
 			psw: '',
 			agreement: 'agreement',
 			forget_password: 'Forget password?',
-			ifAgree: false
+			ifAgree: true
 		}
 	},
 	methods: {
 		btnOnClick(){
-			console.log(this.username)
-			console.log(this.psw)			
-			console.log(this.ifAgree)
-			this.axios({
-				baseURL: 'http://localhost:8000/phl',
-    		method: 'post',
-    		timeout: 5000,
-    		data: { login: {username: this.username, password: this.psw}},
-    		headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-			.then( (res) => console.log(res.data.login.id))
-				
+			
+      login({username: this.username, password: this.psw})
+      .then( (res) => console.log(res))
+      .catch( (res) => console.log(res))
 		}
-	}
+  },
+  watch: {
+    username: {
+      handler(curVal){
+        this.ifAgree != curVal === ''
+      },
+      immediate: true
+    },
+    psw: {
+      handler(curVal){
+        this.ifAgree != curVal === ''
+      },
+      immediate: true
+    }
+  }
 }
 </script>
 
