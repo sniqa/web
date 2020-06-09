@@ -4,7 +4,7 @@
     <!-- <button  @click="dark">22222</button> -->
     <flex-container class="card-flex-container">
 
-      <card></card>
+      <card>{{ this.$store.state.token.token }}</card>
       <card></card>
       <card></card>
       <card></card>

@@ -1,20 +1,22 @@
 <template>
-<transition name="login">
-  <div :class="$style.login">
-    <div>Sign in</div>
-    <new-input	preIcon="person" v-model="username"></new-input>
-    <new-input  preIcon="lock" type="password" v-model="psw"></new-input>
-    <new-button value="Sign in" @click="btnOnClick" :class="$style['login-item-btn']"
-      :disabled="!ifAgree"
-      ></new-button>
-    <div :class="$style['login-container']">
-      <label for="login-checkbox">
-        <toggle :class="$style['login-toggle']" :on.sync="ifAgree"></toggle>{{ agreement }}
-      </label>
-      <a href="">{{ forget_password }}</a>
-    </div>
-  </div>
-  </transition>
+
+	<transition name="login">
+  	<div :class="$style.login">
+    	<div>Sign in</div>
+			<new-input	preIcon="person" v-model="username"></new-input>
+			<new-input  preIcon="lock" type="password" v-model="psw"></new-input>
+			<new-button value="Sign in" @click="btnOnClick" :class="$style['login-item-btn']"
+				:disabled="!ifAgree"
+				></new-button>
+			<div :class="$style['login-container']">
+				<label for="login-checkbox">
+					<toggle :class="$style['login-toggle']" :on.sync="ifAgree"></toggle>{{ agreement }}
+				</label>
+				<a href="">{{ forget_password }}</a>
+			</div>
+		</div>
+		</transition>
+	
 </template>
 
 <script>
@@ -34,14 +36,14 @@ export default {
 			psw: '',
 			agreement: 'agreement',
 			forget_password: 'Forget password?',
+			open: false,
 			ifAgree: true
 		}
 	},
 	methods: {
 		btnOnClick(){
-			
       login({username: this.username, password: this.psw})
-      .then( (res) => console.log(res))
+      .then( (res) => { this.$store.state.token.token = res.token })
       .catch( (res) => console.log(res))
 		}
   },
