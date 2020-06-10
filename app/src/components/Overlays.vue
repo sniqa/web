@@ -38,12 +38,12 @@ export default {
 }
 </script>
 <style>
-.overlays-enter-active, .overlays-leave-active {
+/* .overlays-enter-active, .overlays-leave-active {
   transition: opacity .5s;
 }
 .overlays-enter, .overlays-leave-to {
   opacity: 0;
-}
+} */
 </style>
 
 <style module>
@@ -58,10 +58,10 @@ export default {
   left: 0;
   display: flex;
 }
-.overlays-enter-active, .overlays-leave-active {
+/* .overlays-enter-active, .overlays-leave-active {
   transition: opacity 1.5s;
 }
 .overlays-enter, .overlays-leave-to {
   opacity: 0;
-}
+} */
 </style>

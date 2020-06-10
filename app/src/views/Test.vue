@@ -23,7 +23,8 @@
       hello
     </icon-drawer> -->
     <!-- <msg></msg> -->
-    <login v-show="ifShow"></login>
+    <!-- <login v-show="ifShow"></login> -->
+    <new-overlays :show.sync="ifShow" ></new-overlays>
   </div>
 </template>
 
@@ -41,6 +42,7 @@ import WorkArea from '@/components/WorkArea.vue'
 import IconDrawer from '@/components/IconDrawer.vue'
 import msg from '@/components/msg.vue'
 import Login from '@/components/Login.vue'
+import NewOverlays from '@/components/NewOverlays.vue'
 
 export default {
   components: {
@@ -55,14 +57,15 @@ export default {
     WorkArea,
     IconDrawer,
     msg,
-    Login
+    Login,
+    NewOverlays
   },
    data() {
       return {
         show: false,
         drawer: false,
         direction: 'rtl',
-        ifShow: true
+        ifShow: false
       };
     },
     methods: {
