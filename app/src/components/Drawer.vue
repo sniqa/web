@@ -1,5 +1,5 @@
 <template>
-  <Overlays :open.sync="show" @click="onClick" class="drawer-direction">
+  <Overlays :show.sync="show" @click="onClick" class="drawer-direction">
     <transition :name="'drawer-' + direction">
       <div class="drawer" ref="drawer" @click="drawerOnClick">
         <slot></slot>

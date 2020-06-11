@@ -1,6 +1,6 @@
 <template>
   <transition name="overlays">
-    <div :class="$style.overlays" v-show="isShow" @click="onClick">
+    <div :class="[$style.overlays, $style['overlays-' + direction]]" v-show="isShow" @click="onClick">
       <slot></slot>
     </div>  
   </transition>
@@ -9,31 +9,47 @@
 <script>
 export default {
   props: {
-    open: {
+    show: {
+      type: Boolean,
+      default: false
+    },
+    direction: {
+      type: String,
+      default: 'left'
+    },
+    synch: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      isShow: this.open
+      isShow: this.show
     }
   },
   methods: {
     onClick(){
+      this.isShow = false
       this.$emit("click", event)
     }
   },
   watch: {
-    open: {
-      handler(value){
-        this.isShow = value
+    show: {
+      handler(curVal){
+        this.isShow = curVal
+      },
+      immediate: true
+    },
+    synch: {
+      handler(curVal){
+        this.isShow = curVal
       },
       immediate: true
     },
     isShow: {
-      handler(value){
-        this.$emit("update:open", value)
+      handler(curVal){
+        this.$emit("update:show", curVal)
+        this.$emit("update:synch", curVal)
       },
       immediate: true
     }
@@ -41,12 +57,12 @@ export default {
 }
 </script>
 <style>
-/* .overlays-enter-active, .overlays-leave-active {
+.overlays-enter-active, .overlays-leave-active {
   transition: opacity .5s;
 }
 .overlays-enter, .overlays-leave-to {
   opacity: 0;
-} */
+}
 </style>
 
 <style module>
@@ -60,11 +76,23 @@ export default {
   right: 0;
   left: 0;
   display: flex;
+  align-items: center;
+
 }
-/* .overlays-enter-active, .overlays-leave-active {
-  transition: opacity 1.5s;
+.overlays-center{
+  justify-content: center;
 }
-.overlays-enter, .overlays-leave-to {
-  opacity: 0;
-} */
+.overlays-top{
+  flex-flow: column;
+}
+.overlays-bottom{
+  flex-flow: column;
+  justify-content: flex-end;
+}
+.overlays-left{
+  justify-content: flex-start;
+}
+.overlays-right{
+  justify-content: flex-end;
+}
 </style>

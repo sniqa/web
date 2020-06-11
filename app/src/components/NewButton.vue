@@ -58,9 +58,8 @@ export default {
     --btn-width: 80px;
     --btn-height: 30px;
     --btn-color: inherit;
-    --btn-bg-color: #ccc;
-    --btn-border: 2px solid transparent;
-    --btn-border-radius: 0;
+    --btn-bg-color: var(--primary);
+    --btn-border: 1px solid var(--line-color);
 }
 .btn{
     box-sizing: border-box;
@@ -70,11 +69,11 @@ export default {
     background-color: var(--btn-bg-color);
     border: var(--btn-border);
     outline: 0;
-    border-radius: var(--btn-border-radius);
+    border-radius: calc(var(--btn-width) * var(--round));
 }
 .btn-disabled{
-  background-color: #ccc;
-	border-color: #ccc;
-	color:rgba(0, 0, 0, .2);
+  background-color: var(--disable);
+	border-color: var(--disable);
+	color: var(--warning);
 }
 </style>

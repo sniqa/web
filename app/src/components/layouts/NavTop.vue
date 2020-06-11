@@ -11,11 +11,10 @@
       <!-- <flex-item :class="'flex-item-type-two'"> -->
         <icon-drawer icon="search" iconType="icon-type"
           drawerDirection="top" drawerType="drawer-type-search"></icon-drawer>
-        <icon-drawer icon="person" iconType="icon-type"
-          drawerDirection="center" >
+        <icon name="person" class="icon-type" @click="iconon" >
           <!-- drawerType="drawer-type-person" -->
-          <login></login>
-        </icon-drawer>
+        </icon>
+          <login :show.sync="open"></login>
         <icon-drawer icon="settings" iconType="icon-type"
           drawerDirection="bottom" drawerType="drawer-type-settings">
         </icon-drawer>
@@ -51,7 +50,10 @@ export default {
     }
   },
   methods: {
-
+    iconon(){
+      this.open = !this.open
+      console.log(this.open)
+    }
   }
 }
 </script>
@@ -64,7 +66,7 @@ export default {
   --icon-color: var(--primary-text);
 }
 .icon-type:hover{
-  --icon-color: var(--foreground);
+  --icon-color: var(--white);
 }
 
 .drawer-type-menu{

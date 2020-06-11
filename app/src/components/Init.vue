@@ -12,17 +12,18 @@ export default {
 
 <style module>
 .init{
-  --foreground: #ffffff;
-  --background: #000000;
+  --white: #ffffff;
+  --dark: #000000;
   --primary: #409EFF;
   --success: #67C23A;
   --warning: #E6A23C;
   --danger: #F56C6C;
   --info: #909399;
   --primary-text: #303133;
+  --disable: #cccccc;
   --round: 0;
   --line-color:#cccccc; 
-  --background-image: linear-gradient(var(--primary), 90%, var(--foreground));
+  --background-image: linear-gradient(var(--primary), 90%, var(--white));
   background-image: var(--background-image);
 }
 </style>
