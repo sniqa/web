@@ -20,9 +20,6 @@ export default {
     }
   },
   methods: {
-    btnOnClick(){
-      this.$emit("update:open", false)
-    },
     onClick(){
       this.$emit("click", event)
     }
@@ -31,6 +28,12 @@ export default {
     open: {
       handler(value){
         this.isShow = value
+      },
+      immediate: true
+    },
+    isShow: {
+      handler(value){
+        this.$emit("update:open", value)
       },
       immediate: true
     }

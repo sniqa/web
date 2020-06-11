@@ -1,8 +1,8 @@
 <template>
   <div id="app" ref="app">
-    <router-view/>
-    <Alert :msg="$store.state.message.alert"></Alert>
-    <init></init>
+    <init>
+      <router-view/>
+    </init>
   </div>
 </template>
 
@@ -17,7 +17,6 @@ export default {
     },
     data(){
       return {
-        model: 'theme-light'
       }
     },
     

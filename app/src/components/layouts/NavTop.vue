@@ -18,7 +18,6 @@
         </icon-drawer>
         <icon-drawer icon="settings" iconType="icon-type"
           drawerDirection="bottom" drawerType="drawer-type-settings">
-          <settings></settings>  
         </icon-drawer>
         <!-- <icon name="search" class="icon-type" @click="searchIconOnClick"></icon>
         <icon name="person" class="icon-type" @click="personIconOnClick"></icon>
@@ -32,7 +31,6 @@
 import Icon from '@/components/Icon.vue'
 import Drawer from '@/components/Drawer.vue'
 import IconDrawer from '@/components/IconDrawer.vue'
-import Settings from '@/components/settings/Settings.vue'
 import FlexContainer from '@/components/flex/FlexContainer.vue'
 import FlexItem from '@/components/flex/FlexItem.vue'
 import Login from '@/components/Login.vue'
@@ -43,7 +41,6 @@ export default {
     FlexItem,
     Drawer,
     IconDrawer,
-    Settings,
     Login
   },
   data(){
@@ -64,16 +61,11 @@ export default {
   --icon-height: 50px;
   --icon-width: 55px;
   --icon-size: 28px;
-  --icon-color: #fff;
+  --icon-color: var(--primary-text);
 }
-/* .drawer-type{
-  --drawer-height: 50%;
-  --drawer-width: 50%;
-  --drawer-background-color: #fff;
-  --drawer-font-colr: skyblue;
-  --drawer-font-size: 18px;
-  --overlays-background-color: rgba(0, 0, 0, 0); 
-} */
+.icon-type:hover{
+  --icon-color: var(--foreground);
+}
 
 .drawer-type-menu{
   --drawer-width: 20%;
@@ -97,8 +89,8 @@ export default {
 
 
 .flex-container-type{
-  background-color: rgba(0, 0, 0, 0.77);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+  border-bottom: 1px solid var(--line-color);
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, .2); */
 
 }
 .flex-item-type{

@@ -43,7 +43,9 @@ export default {
 	methods: {
 		btnOnClick(){
       login({username: this.username, password: this.psw})
-      .then( (res) => { this.$store.state.token.token = res.token })
+	  .then( (res) => { this.$store.state.token.token = res.token 
+			  
+	  })
       .catch( (res) => console.log(res))
 		}
   },
@@ -66,7 +68,7 @@ export default {
 
 <style module>
 .login{
-	background-color: #1b2b3b;
+	background-image: linear-gradient(90deg, var(--foreground), 5%, var(--primary), 95%, var(--foreground));
 	/* background-color: transparent; */
 	height: 280px;
 	width: 380px;
