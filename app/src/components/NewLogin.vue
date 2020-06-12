@@ -1,6 +1,5 @@
 <template>
-	<overlays v-bind="this.$attrs" v-on="$listeners" direction="center" :synch.sync="synch">
-    <transition name="login">
+	<transition name="info">
       <div :class="$style.login" @click="loginBarOnClick" v-show="synch">
         <div :class="$style['login-head']">
           <div :class="$style['login-title']">{{ title }}</div>
@@ -15,11 +14,10 @@
           <label for="login-checkbox">
             <toggle :class="$style['login-toggle']" :on.sync="ifAgree"></toggle>{{ agreement }}
           </label>
-          <new-button :value="forget_password"></new-button>
+          <new-button :value="forget_password" @click="forgetOnClick"></new-button>
         </div>
       </div>
-    </transition>
-	</overlays>
+   </transition>
 	
 </template>
 
@@ -38,9 +36,15 @@ export default {
     Icon,
     Overlays
 	},
+	props: {
+		show: {
+			type: Boolean,
+			default: false
+		}
+	},
 	data(){
 		return {
-      synch: false,
+      synch: this.show,
       title: 'Sign in',
 			username: '',
 			psw: '',
@@ -52,7 +56,7 @@ export default {
 	methods: {
     loginBarOnClick(event){
         event.stopPropagation()
-      },
+    },
 		btnOnClick(){
       login({username: this.username, password: this.psw})
 	  .then( (res) => { 
@@ -65,12 +69,15 @@ export default {
       }
 	  })
       .catch( (res) => console.log(res))
+		},
+		forgetOnClick(){
+			this.$emit('gotoForgetPasswd')
 		}
   },
   watch: {
-    username: {
+    show: {
       handler(curVal){
-        this.ifAgree != curVal === ''
+        this.synch = curVal
       },
       immediate: true
     },
@@ -133,10 +140,10 @@ export default {
 
 </style>
 <style>
-.login-enter-active, .login-leave-active {
+.info-enter-active, .info-leave-active {
   transition: padding .5s;
 }
-.login-enter, .login-leave-to {
+.info-enter, .info-leave-to {
   padding: 80px;
 }
 </style>
